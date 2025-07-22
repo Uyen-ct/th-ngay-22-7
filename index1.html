@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cau 1</title>`
+</head>
+
+<body>
+    <form id="emailForm">
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email">
+        <br><br>
+        <button type="button" onclick="checkEmail()">Check</button>
+        <p id="result"></p>
+
+    </form>
+    <script>
+        function checkEmail() {
+            const email = document.getElementById("email").value;
+            const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+            const result = document.getElementById("result");
+
+            if (regex.test(email)) {
+                result.textContent = "Email hợp lệ";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Email không hợp lệ";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

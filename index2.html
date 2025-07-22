@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 2</title>
+</head>
+
+<body>
+    <form id="phoneForm">
+        <label for="phone">Số điện thoại: </label><br>
+        <input type="text" id="phone" name="phone"><br><br>
+        <button type="button" onclick="validatePhone()">Check</button>
+        <p id="result"></p>
+
+    </form>
+    <script>
+        function validatePhone() {
+            const phone = document.getElementById("phone").value;
+            const regex = /^0\d{9}$/;
+            const result = document.getElementById('result');
+
+            if (regex.test(phone)) {
+                result.textContent = "số điện thoại hợp lệ";
+                result.style.color = "green";
+            } else {
+                result.textContent = "số điện thoại không hợp lệ";
+                result.style.color = "red";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
