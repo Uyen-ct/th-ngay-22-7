@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>câu 10</title>
+</head>
+
+<body>
+    <form>
+        <label for="url">Nhập URL:</label><br>
+        <input type="text" id="url" placeholder="vd: https://example.com/test">
+        <br><br>
+        <button type="button" onclick="checkURL()">Kiểm tra</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        function checkURL() {
+            const url = document.getElementById("url").value.trim();
+            const result = document.getElementById("result");
+
+            // Biểu thức chính quy kiểm tra URL hợp lệ
+            const regex = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/;
+
+            if (url === "") {
+                result.textContent = "Không được để trống.";
+                result.style.color = "red";
+            } else if (!regex.test(url)) {
+                result.textContent = "URL không hợp lệ.";
+                result.style.color = "red";
+            } else {
+                result.textContent = "URL hợp lệ.";
+                result.style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>
