@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>câu 4</title>
+</head>
+
+<body>
+    <form>
+        <label for="fullname">nhập họ tên:</label><br>
+        <input type="text" id="fullname" name="fullname">
+        <br><br>
+        <button type="button" onclick="checkname()">checkname</button>
+        <p id="result"></p>
+        <script>
+            function checkname() {
+                const name = document.getElementById("fullname").value.trim();
+                const regex = /^[A-Za-zÀ-ỹ\s]+$/;
+                const result = document.getElementById("result");
+
+                if (name === "") {
+                    result.textContent = "Không được để trống";
+                    result.style.color = "red";
+                } else if (!regex.test(name)) {
+                    result.textContent = "Họ tên không hợp lệ (không chứa số hoặc ký tự đặc biệt)";
+                    result.style.color = "red";
+                } else {
+                    result.textContent = "Họ tên hợp lệ";
+                    result.style.color = "green";
+                }
+            }
+        </script>
+    </form>
+</body>
+
+</html>

@@ -19,14 +19,14 @@
     <script>
         function checkPass() {
             const pass = document.getElementById("pass").value;
-            const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
             const result = document.getElementById("result");
+            const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
             if (regex.test(pass)) {
-                result.textContent = "mật khẩu an toàn";
+                result.textContent = "Mật khẩu an toàn";
                 result.style.color = "green";
             } else {
-                result.textContent = "mật khẩu không an toàn";
+                result.textContent = "Mật khẩu không an toàn (ít nhất 8 ký tự, gồm chữ hoa, chữ thường và số)";
                 result.style.color = "red";
             }
         }
