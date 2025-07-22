@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="ip">Nhập địa chỉ IP (IPv4):</label><br>
+        <input type="text" id="ip" placeholder="vd: 192.168.1.1">
+        <br><br>
+        <button type="button" onclick="checkIP()">Kiểm tra</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        function checkIP() {
+            const ip = document.getElementById("ip").value.trim();
+            const result = document.getElementById("result");
+
+            // Biểu thức chính quy kiểm tra IP IPv4 hợp lệ
+            const regex = /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$/;
+
+            if (ip === "") {
+                result.textContent = "Không được để trống.";
+                result.style.color = "red";
+            } else if (!regex.test(ip)) {
+                result.textContent = "Địa chỉ IP không hợp lệ. Phải theo dạng IPv4: x.x.x.x (0–255).";
+                result.style.color = "red";
+            } else {
+                result.textContent = "Địa chỉ IP hợp lệ.";
+                result.style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>
