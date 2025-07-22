@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>câu 9</title>
+</head>
+
+<body>
+    <form>
+        <label for="credit">Nhập số thẻ tín dụng:</label><br>
+        <input type="text" id="credit" placeholder="vd: 1234 5678 9012 3456 hoặc 1234567890123456">
+        <br><br>
+        <button type="button" onclick="checkCreditCard()">Kiểm tra</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        function checkCreditCard() {
+            const input = document.getElementById("credit").value.trim();
+            const result = document.getElementById("result");
+
+            // Biểu thức chính quy kiểm tra số thẻ tín dụng: 16 chữ số, có thể cách nhau bằng khoảng trắng
+            const regex = /^(?:\d{4} ?){4}$/;
+
+            if (input === "") {
+                result.textContent = "Không được để trống.";
+                result.style.color = "red";
+            } else if (!regex.test(input)) {
+                result.textContent = "Số thẻ không hợp lệ. Phải gồm 16 chữ số, có thể có hoặc không có khoảng trắng chia nhóm 4.";
+                result.style.color = "red";
+            } else {
+                result.textContent = "Số thẻ hợp lệ.";
+                result.style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>
