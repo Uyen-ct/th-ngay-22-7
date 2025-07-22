@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>câu 8</title>
+</head>
+
+<body>
+    <form>
+        <label for="postal">Nhập mã bưu điện (5 chữ số):</label><br>
+        <input type="text" id="postal" placeholder="vd: 70000">
+        <br><br>
+        <button type="button" onclick="checkPostalCode()">Kiểm tra</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        function checkPostalCode() {
+            const postal = document.getElementById("postal").value.trim();
+            const result = document.getElementById("result");
+
+            const regex = /^\d{5}$/;
+
+            if (postal === "") {
+                result.textContent = "Không được để trống.";
+                result.style.color = "red";
+            } else if (!regex.test(postal)) {
+                result.textContent = "Mã bưu điện không hợp lệ. Phải gồm đúng 5 chữ số.";
+                result.style.color = "red";
+            } else {
+                result.textContent = "Mã bưu điện hợp lệ.";
+                result.style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>
