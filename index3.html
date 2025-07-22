@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>câu 3</title>
+</head>
+
+<body>
+    <form id="passForm">
+        <label for="pass">Nhập mật khẩu:</label><br>
+        <input type="password" id="pass" name="pass">
+        <br><br>
+        <button type="button" onclick="checkPass()">Checkpass</button>
+        <p id="result"></p>
+
+    </form>
+    <script>
+        function checkPass() {
+            const pass = document.getElementById("pass").value;
+            const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+            const result = document.getElementById("result");
+
+            if (regex.test(pass)) {
+                result.textContent = "mật khẩu an toàn";
+                result.style.color = "green";
+            } else {
+                result.textContent = "mật khẩu không an toàn";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>
